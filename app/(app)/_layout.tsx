@@ -1,10 +1,12 @@
-import { View, Text } from 'react-native'
 import React from 'react'
-import { Stack } from 'expo-router'
+import { Slot } from 'expo-router'
+import ProfileSetupProvider from '@/context/profileSetupContext'
 
 const _layout = () => {
   return (
-    <Stack />
+    <ProfileSetupProvider>
+      <Slot />
+    </ProfileSetupProvider>
   )
 }
 

@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import { User as FirebaseUser } from "firebase/auth";
+import { User as FirebaseUser } from "@/store/types/types";
 import { auth, setupAuthStatePersistence } from '@/utils/firebase';
 import { router } from "expo-router";
 import { ThemedView } from "@/components/ThemedView";
