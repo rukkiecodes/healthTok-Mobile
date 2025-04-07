@@ -3,7 +3,7 @@ import { db } from '@/utils/firebase';
 import { router } from "expo-router";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { auth } from '@/utils/firebase';
 
 interface ProfileContextType {
@@ -27,12 +27,15 @@ const ProfileSetupProvider = ({ children }: ProfileSetupProviderProps) => {
   useEffect(() => {
     const getProfile = async () => {
       const { uid }: any = auth.currentUser
-      const { setup }: any = (await getDoc(doc(db, 'users', uid))).data()
+      const unsub = onSnapshot(doc(db, "users", uid), (doc) => {
+        const { setup }: any = doc.data()
+        if (setup) setIsProfileSetup(true);
+        else setIsProfileSetup(false);
 
-      if (setup) setIsProfileSetup(true);
-      else setIsProfileSetup(false);
+        setLoading(false);
+      });
 
-      setLoading(false);
+      return unsub
     }
 
     getProfile()

@@ -1,0 +1,9 @@
+export interface Profile {
+  uid: string;
+  photoURL?: string;
+  name?: string;
+  username?: string;
+  email?: string;
+  gender?: string;
+  referralCode?: string;
+}
