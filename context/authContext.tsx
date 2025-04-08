@@ -46,7 +46,7 @@ const AuthenticationProvider = ({ children }: AuthenticationProviderProps) => {
   useEffect(() => {
     if (!loading) {
       if (!authState) router.replace("/(auth)/getStarted");
-      else router.replace("/(app)/home");
+      else router.replace("/(app)/(tabs)/home");
     }
   }, [authState, loading]);
 
