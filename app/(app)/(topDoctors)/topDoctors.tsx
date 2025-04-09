@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import React, { useCallback, useRef } from 'react'
 import { Appbar, PaperProvider } from 'react-native-paper'
 import { ThemedView } from '@/components/ThemedView'
@@ -9,7 +9,7 @@ import { Image } from 'expo-image'
 import { ThemedText } from '@/components/ThemedText'
 import BottomSheet, { BottomSheetBackdrop, BottomSheetView } from '@gorhom/bottom-sheet';
 
-const topDoctors = () => {
+export default function topDoctors () {
   const theme = useColorScheme()
   const bottomSheetRef = useRef<BottomSheet>(null)
 
@@ -241,5 +241,3 @@ const topDoctors = () => {
     </PaperProvider>
   )
 }
-
-export default topDoctors

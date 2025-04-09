@@ -1,14 +1,15 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import { User as FirebaseUser } from "@/store/types/types";
+import { User } from "@/store/types/types";
 import { auth, setupAuthStatePersistence } from '@/utils/firebase';
 import { router } from "expo-router";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
 import { signOut as firebaseSignOut } from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useDispatch } from 'react-redux';
 
 interface AuthContextType {
-  user: FirebaseUser | null;
+  user: User | null;
   signIn: () => void;
   signOut: () => void;
 }
@@ -23,13 +24,14 @@ interface AuthenticationProviderProps {
   children: ReactNode;
 }
 
-const AuthenticationProvider = ({ children }: AuthenticationProviderProps) => {
+export function AuthenticationProvider ({ children }: AuthenticationProviderProps) {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [authState, setAuthState] = useState(false);
 
   useEffect(() => {
     const initializeAuth = async () => {
-      const unsubscribe = setupAuthStatePersistence(firebaseUser => {
+      const unsubscribe = setupAuthStatePersistence((firebaseUser) => {
         if (firebaseUser)
           setAuthState(true);
         else
@@ -41,7 +43,7 @@ const AuthenticationProvider = ({ children }: AuthenticationProviderProps) => {
       return unsubscribe;
     }
     initializeAuth();
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!loading) {
@@ -87,5 +89,3 @@ const AuthenticationProvider = ({ children }: AuthenticationProviderProps) => {
     </AuthContext.Provider>
   );
 };
-
-export default AuthenticationProvider;

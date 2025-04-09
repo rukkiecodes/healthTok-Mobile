@@ -19,7 +19,7 @@ export type ThemedTextProps = TextInputProps & {
   setPeek?: any
 };
 
-export const Input = ({
+export function Input ({
   style,
   font,
   value,
@@ -31,7 +31,7 @@ export const Input = ({
   label = 'Label',
   updateValue = () => { },
   ...rest
-}: ThemedTextProps) => {
+}: ThemedTextProps) {
   const theme = useColorScheme()
   const color = useThemeColor({ light: dark, dark: light }, 'text');
 

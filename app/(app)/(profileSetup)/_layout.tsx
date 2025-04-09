@@ -11,7 +11,7 @@ import { RootState } from '@/store/store'
 import { setModal } from '@/store/slices/profileSlice'
 import { Image } from 'expo-image'
 
-const _layout = () => {
+export default function _layout () {
   const theme = useColorScheme()
   const dispatch = useDispatch()
   const { setupTab, modal } = useSelector((state: RootState) => state.profile)
@@ -142,5 +142,3 @@ const _layout = () => {
     </PaperProvider>
   )
 }
-
-export default _layout

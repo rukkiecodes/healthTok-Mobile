@@ -7,7 +7,7 @@ import { ThemedView } from '../ThemedView'
 import { useColorScheme } from '@/hooks/useColorScheme'
 import { router } from 'expo-router'
 
-const TopDoctors = () => {
+export function TopDoctors () {
   const theme = useColorScheme()
 
   return (
@@ -147,5 +147,3 @@ const TopDoctors = () => {
     </View>
   )
 }
-
-export default TopDoctors

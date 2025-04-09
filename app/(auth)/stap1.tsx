@@ -11,7 +11,7 @@ import { router } from 'expo-router'
 
 const { width, height } = Dimensions.get('window')
 
-export default () => {
+export default function Step1 () {
   const theme = useColorScheme()
 
   return (

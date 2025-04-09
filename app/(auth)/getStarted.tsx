@@ -8,7 +8,7 @@ import { ThemedText } from '@/components/ThemedText'
 import { accent, light, transparent } from '@/utils/colors'
 import { router } from 'expo-router'
 
-export default () => {
+export default function GetStared () {
   const theme = useColorScheme()
 
   return (

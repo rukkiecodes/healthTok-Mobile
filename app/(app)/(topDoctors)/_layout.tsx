@@ -3,7 +3,7 @@ import { Stack } from 'expo-router'
 import { useColorScheme } from '@/hooks/useColorScheme'
 import { appDark, light } from '@/utils/colors'
 
-const _layout = () => {
+export default function _layout () {
   const theme = useColorScheme()
 
   return <Stack
@@ -14,7 +14,7 @@ const _layout = () => {
         backgroundColor: theme == 'dark' ? appDark : light
       }
     }}
-  />
+  >
+    <Stack.Screen name='topDoctors' />
+  </Stack>
 }
-
-export default _layout

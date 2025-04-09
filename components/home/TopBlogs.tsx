@@ -6,7 +6,7 @@ import { ThemedView } from '../ThemedView'
 import { Image } from 'expo-image'
 import { useColorScheme } from '@/hooks/useColorScheme'
 
-const TopBlogs = () => {
+export function TopBlogs() {
   const theme = useColorScheme()
 
   return (
@@ -102,5 +102,3 @@ const TopBlogs = () => {
     </View>
   )
 }
-
-export default TopBlogs

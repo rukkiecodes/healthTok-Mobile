@@ -6,20 +6,22 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { ViewStyle } from 'react-native';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-import AuthenticationProvider from '@/context/authContext';
+import { AuthenticationProvider } from '@/context/authContext';
 import * as NavigationBar from 'expo-navigation-bar';
 import { appDark, light } from '@/utils/colors';
 import { store } from '@/store/store';
 import { Provider } from 'react-redux';
+import { LogBox } from 'react-native';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout () {
+  LogBox.ignoreAllLogs();
   const colorScheme = useColorScheme();
+
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
 
@@ -61,13 +63,11 @@ export default function RootLayout () {
     return null;
   }
 
-  const rootViewStyle: ViewStyle = { flex: 1 };
-
   return (
-    <GestureHandlerRootView style={rootViewStyle}>
-      <Provider store={store}>
-        <StatusBar style="auto" animated />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <StatusBar style="auto" animated />
 
+      <Provider store={store}>
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <AuthenticationProvider>
             <Slot />

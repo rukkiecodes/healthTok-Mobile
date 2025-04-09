@@ -10,7 +10,7 @@ const ITEM_SIZE = width * 0.92
 const SPACING = 20
 const FULLSIZE = ITEM_SIZE + SPACING * 2
 
-const QuickAccess = () => {
+export function QuickAccess () {
   return (
     <ScrollView
       bounces={false}
@@ -135,5 +135,3 @@ const QuickAccess = () => {
     </ScrollView>
   )
 }
-
-export default QuickAccess

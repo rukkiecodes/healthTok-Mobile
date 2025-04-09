@@ -8,11 +8,11 @@ import { Appbar, PaperProvider } from 'react-native-paper'
 import { useColorScheme } from '@/hooks/useColorScheme'
 import { appDark, ice, light } from '@/utils/colors'
 import { Image } from 'expo-image'
-import QuickAccess from '@/components/home/QuickAccess'
-import TopDoctors from '@/components/home/TopDoctors'
-import TopBlogs from '@/components/home/TopBlogs'
+import { QuickAccess } from '@/components/home/QuickAccess'
+import {TopDoctors} from '@/components/home/TopDoctors'
+import {TopBlogs} from '@/components/home/TopBlogs'
 
-const home = () => {
+export default function home () {
   const theme = useColorScheme()
   const { profile } = useSelector((state: RootState) => state.profile)
 
@@ -54,7 +54,7 @@ const home = () => {
             <ThemedText type='body' font='Poppins-Medium'>Search doctors, articles,blogs...</ThemedText>
           </TouchableOpacity>
 
-          <View style={{gap: 40}}>
+          <View style={{ gap: 40 }}>
             <QuickAccess />
             <TopDoctors />
             <TopBlogs />
@@ -64,5 +64,3 @@ const home = () => {
     </PaperProvider>
   )
 }
-
-export default home

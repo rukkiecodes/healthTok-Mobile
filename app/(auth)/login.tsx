@@ -33,7 +33,7 @@ GoogleSignin.configure({
 });
 
 
-export default () => {
+export default function Login() {
   const theme = useColorScheme()
 
   const [email, setEmail] = React.useState('')

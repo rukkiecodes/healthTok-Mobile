@@ -1,12 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const schedule = () => {
+export default function schedule () {
   return (
     <View>
       <Text>schedule</Text>
     </View>
   )
 }
-
-export default schedule

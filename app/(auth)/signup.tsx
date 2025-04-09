@@ -14,7 +14,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '@/utils/firebase'
 import { collection, doc, getDocs, query, serverTimestamp, setDoc, where } from 'firebase/firestore'
 
-export default () => {
+export default function Signup () {
   const theme = useColorScheme()
 
   const [name, setName] = React.useState('')

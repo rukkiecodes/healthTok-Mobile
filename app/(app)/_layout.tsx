@@ -4,7 +4,7 @@ import ProfileSetupProvider from '@/context/profileSetupContext'
 import { fetchProfile } from '@/store/actions/fetchProfileAction';
 import { useDispatch } from 'react-redux';
 
-const _layout = () => {
+export default function _layout () {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -21,5 +21,3 @@ const _layout = () => {
     </ProfileSetupProvider>
   )
 }
-
-export default _layout

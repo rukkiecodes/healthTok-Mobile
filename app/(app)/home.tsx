@@ -5,7 +5,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '@/utils/firebase'
 
 
-const home = () => {
+export default function home () {
   const handleLogout = async () => {
     try {
       // Sign out from Google
@@ -27,5 +27,3 @@ const home = () => {
     </View>
   )
 }
-
-export default home

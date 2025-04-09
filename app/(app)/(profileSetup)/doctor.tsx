@@ -12,7 +12,7 @@ import { RootState } from '@/store/store'
 import { auth, db } from '@/utils/firebase'
 import { doc, updateDoc } from 'firebase/firestore'
 
-const doctor = () => {
+export default function doctor () {
   const dispatch = useDispatch()
   const theme = useColorScheme()
 
@@ -266,5 +266,3 @@ const doctor = () => {
     </PaperProvider>
   )
 }
-
-export default doctor

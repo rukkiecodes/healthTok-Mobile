@@ -42,6 +42,7 @@ export default {
         "@react-native-google-signin/google-signin",
         {
           iosUrlScheme: process.env.EXPO_PUBLIC_REVERSED_CLIENT_ID,
+          reservedClientId: process.env.EXPO_PUBLIC_REVERSED_CLIENT_ID,
         },
       ],
     ],

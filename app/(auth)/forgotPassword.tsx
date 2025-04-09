@@ -13,7 +13,7 @@ import { TouchableWithoutFeedback } from 'react-native'
 import { sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '@/utils/firebase'
 
-export default () => {
+export default function ForgotPaswsord () {
   const theme = useColorScheme()
   const [email, setEmail] = React.useState('')
   const [loading, setLoading] = React.useState(false)

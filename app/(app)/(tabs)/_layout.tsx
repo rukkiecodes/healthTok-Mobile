@@ -1,4 +1,4 @@
-import { View, Text, Easing } from 'react-native'
+import { Easing } from 'react-native'
 import React from 'react'
 import { Tabs } from 'expo-router'
 import { useColorScheme } from '@/hooks/useColorScheme'
@@ -7,7 +7,7 @@ import { ThemedView } from '@/components/ThemedView'
 import { Image } from 'expo-image'
 import { ThemedText } from '@/components/ThemedText'
 
-const _layout = () => {
+export default function _layout () {
   const theme = useColorScheme()
 
   return (
@@ -106,5 +106,3 @@ const _layout = () => {
     </Tabs>
   )
 }
-
-export default _layout
